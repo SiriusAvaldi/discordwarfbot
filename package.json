@@ -1,0 +1,12 @@
+{
+  "name": "node-example",
+  "version": "0.0.1",
+  "dependencies": {
+    "discord.js": "11.5.1"
+    "request-promise": "4.2.4"
+  },
+  "engines": {
+    "node": "12.4.x",
+    "npm": "6.9.x"
+  }
+}
