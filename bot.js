@@ -75,7 +75,7 @@ var prefix = '!'
 				var mes = "";
 				if(info.length > 0)
 				{
-					for (index = 0; index < info.variants.length; index++) {
+					for (index = 0; index < info.length; index++) {
 						if(info[index].vsInfestation === true)					
 							mes += info[index].desc + ' - ' + info[index].defenderReward.itemString + ' - ' + info[index].node + ' - ' + info[index].completion + '% - ' + info[index].eta + '\r\n';
 						else
@@ -94,7 +94,7 @@ var prefix = '!'
 				var info = JSON.parse(body);
 				var index;
 				var mes = "";
-				for (index = info.variants.length - 1; index >= 0; index--) {
+				for (index = info.length - 1; index >= 0; index--) {
 				    mes += info[index].translations.ru + ' - ' + info[index].eta + '\r\n';
 				}
 				message.channel.sendMessage(mes);
