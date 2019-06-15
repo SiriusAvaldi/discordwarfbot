@@ -94,7 +94,7 @@ var prefix = '!'
 				var info = JSON.parse(body);
 				var index;
 				var mes = "";
-				for (index = info.variants.length; index >= 0; index--) {
+				for (index = info.variants.length - 1; index >= 0; index--) {
 				    mes += info[index].translations.ru + ' - ' + info[index].eta + '\r\n';
 				}
 				message.channel.sendMessage(mes);
