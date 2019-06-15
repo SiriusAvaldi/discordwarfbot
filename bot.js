@@ -27,9 +27,11 @@ var prefix = '!'
 			if (!error && response.statusCode == 200) {
 				var info = JSON.parse(body);
 				var index;
+				var mes;
 				for (index = 0; index < info.length; index++) {
-				    message.channel.sendMessage(info[index].node);
+				    mes += info[index].tier + ' ' + info[index].node + ' ' + info[index].missionType + ' ' + info[index].enemy  + ' ' + info[index].eta + '\r\n';
 				}
+				message.channel.sendMessage(mes);
 			}
 		})
      }
