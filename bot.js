@@ -11,13 +11,28 @@ var prefix = '!'
 		request('https://api.warframestat.us/pc/cetusCycle', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				var info = JSON.parse(body);
-				if(info['isDay'] === true)
+				if(info.isDay === true)
 				{
-					message.channel.sendMessage('До ночи осталось ' + info['timeLeft']);
+					message.channel.sendMessage('До ночи осталось ' + info.timeLeft);
 				}		
 				else
 				{
-					message.channel.sendMessage('До дня осталось ' + info['timeLeft']);
+					message.channel.sendMessage('До дня осталось ' + info.timeLeft);
+				}	
+			}
+		})
+     }
+     if(message.content.startsWith(prefix + 'Фортуна')) {
+		request('https://api.warframestat.us/pc/vallisCycle', function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				var info = JSON.parse(body);
+				if(info.isWarm === true)
+				{
+					message.channel.sendMessage('До холодной погоды осталось ' + info.timeLeft);
+				}		
+				else
+				{
+					message.channel.sendMessage('До теплой погоды осталось ' + info.timeLeft);
 				}	
 			}
 		})
@@ -134,7 +149,7 @@ var prefix = '!'
 		})
      }
      if(message.content.startsWith(prefix + 'help')) {
-	var mes = "!help - Список команд\r\n!Цетус - Информация о времени стуток на Равнинах Эйдолона\r\n!Разломы - Информация о разломах бездны\r\n!Ивенты - Информация об активных ивентах\r\n!Вылазка - Информация о текущей вылазке\r\n"
+	var mes = "!help - Список команд\r\n!Цетус - Информация о времени стуток на Равнинах Эйдолона\r\n!Фортуна - Информация о погоде в Долине Сфер\r\n!Разломы - Информация о разломах бездны\r\n!Ивенты - Информация об активных ивентах\r\n!Вылазка - Информация о текущей вылазке\r\n"
 	+"!Вторжения - Список текущих вторжений\r\n!Новости - Список последних новостей\r\n!Волна - Информация о Ночной Волне\r\n!Баро - Информация о Торговце бездны\r\n";
      	message.channel.sendMessage(mes);
      }
