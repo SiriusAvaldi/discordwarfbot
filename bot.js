@@ -95,7 +95,7 @@ var prefix = '!'
 				var index;
 				var mes = "";			
 				for (index = info.length - 1; index >= 0; index--) {
-					if(info[index].translations.ru != "undefined")
+					if(info[index].translations.ru !== 'undefined')
 					{
 				        	mes += info[index].translations.ru + ' - ' + info[index].eta + '\r\n';
 					}
@@ -109,9 +109,9 @@ var prefix = '!'
 			if (!error && response.statusCode == 200) {
 				var info = JSON.parse(body);
 				var index;
-				var mes = "Сезон " + info[index].season + ", Фаза " + info[index].phase  + ", Заканчивается " + info[index].expiry + "\r\n";			
-				for (index = 0; index < info.length; index++) {
-				        mes += info[index].activeChallenges.title + ' - ' + info[index].activeChallenges.desc + ' - ' + info[index].activeChallenges.reputation + '\r\n';
+				var mes = "Сезон " + info.season + ", Фаза " + info.phase  + ", Заканчивается " + info.expiry + "\r\n";			
+				for (index = 0; index < info.activeChallenges.length; index++) {
+				        mes += info.activeChallenges[index].title + ' - ' + info.activeChallenges[index].desc + ' - ' + info.activeChallenges[index].reputation + '\r\n';
 				}
 				message.channel.sendMessage(mes);
 			}
@@ -126,7 +126,7 @@ var prefix = '!'
 				{
 					var mes = "Локация " + info.location + ", Уходит через " + info.endString + "\r\n";			
 					for (index = 0; index < info.inventory.length; index++) {
-						mes += info.inventory[index].item + ' - Дукаты ' + info.inventory[index].ducats + ' + Кредиты' + info.inventory[index].credits + '\r\n';
+						mes += info.inventory[index].item + ' - Дукаты ' + info.inventory[index].ducats + ' + Кредиты ' + info.inventory[index].credits + '\r\n';
 					}
 					message.channel.sendMessage(mes);
 				}
