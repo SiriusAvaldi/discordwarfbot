@@ -77,9 +77,9 @@ var prefix = '!'
 				{
 					for (index = 0; index < info.length; index++) {
 						if(info[index].vsInfestation === true)					
-							mes += info[index].desc + ' - ' + info[index].defenderReward.itemString + ' - ' + info[index].node + ' - ' + info[index].completion + '% - ' + info[index].eta + '\r\n';
+							mes += info[index].defenderReward.itemString + ' - ' + info[index].desc + ' - ' + info[index].node + ' - ' + info[index].completion + '% - ' + info[index].eta + '\r\n';
 						else
-							mes += info[index].desc + ' - ' + info[index].attackerReward.itemString + ' vs ' + info[index].defenderReward.itemString + ' - ' + info[index].node + ' - ' + info[index].completion + '% - ' + info[index].eta + '\r\n';
+							mes += info[index].attackerReward.itemString + ' vs ' + info[index].defenderReward.itemString + ' - ' + info[index].desc + ' - ' + info[index].node + ' - ' + info[index].completion + '% - ' + info[index].eta + '\r\n';
 					}
 					message.channel.sendMessage(mes);
 				}
@@ -93,16 +93,49 @@ var prefix = '!'
 			if (!error && response.statusCode == 200) {
 				var info = JSON.parse(body);
 				var index;
-				var mes = "";
+				var mes = "";			
 				for (index = info.length - 1; index >= 0; index--) {
-				    mes += info[index].translations.ru + ' - ' + info[index].eta + '\r\n';
+					if(info[index].translations.ru != "undefined")
+					{
+				        	mes += info[index].translations.ru + ' - ' + info[index].eta + '\r\n';
+					}
 				}
 				message.channel.sendMessage(mes);
 			}
 		})
      }
+     if(message.content.startsWith(prefix + 'Волна')) {
+		request('https://api.warframestat.us/pc/nightwave', function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				var info = JSON.parse(body);
+				var index;
+				var mes = "Сезон " + info[index].season + ", Фаза " + info[index].phase  + ", Заканчивается " + info[index].expiry + "\r\n";			
+				for (index = 0; index < info.length; index++) {
+				        mes += info[index].activeChallenges.title + ' - ' + info[index].activeChallenges.desc + ' - ' + info[index].activeChallenges.reputation + '\r\n';
+				}
+				message.channel.sendMessage(mes);
+			}
+		})
+     }
+     if(message.content.startsWith(prefix + 'Баро')) {
+		request('https://api.warframestat.us/pc/voidTrader', function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				var info = JSON.parse(body);
+				var index;
+				if(info.active === true)
+				{
+					var mes = "Локация " + info.location + ", Уходит через " + info.endString + "\r\n";			
+					for (index = 0; index < info.inventory.length; index++) {
+						mes += info.inventory[index].item + ' - Дукаты ' + info.inventory[index].ducats + ' + Кредиты' + info.inventory[index].credits + '\r\n';
+					}
+					message.channel.sendMessage(mes);
+				}
+			}
+		})
+     }
      if(message.content.startsWith(prefix + 'help')) {
-	var mes = "!help - Список команд\r\n!Цетус - Информация о времени стуток на Равнинах Эйдолона\r\n!Разломы - Информация о разломах бездны\r\n!Ивенты - Информация об активных ивентах\r\n!Вылазка - Информация о текущей вылазке\r\n";
+	var mes = "!help - Список команд\r\n!Цетус - Информация о времени стуток на Равнинах Эйдолона\r\n!Разломы - Информация о разломах бездны\r\n!Ивенты - Информация об активных ивентах\r\n!Вылазка - Информация о текущей вылазке\r\n"
+	+"!Вторжения - Список текущих вторжений\r\n!Новости - Список последних новостей\r\n!Волна - Информация о Ночной Волне\r\n!Баро - Информация о Торговце бездны\r\n";
      	message.channel.sendMessage(mes);
      }
 	 
