@@ -1,9 +1,14 @@
 {
   "name": "node-example",
   "version": "0.0.1",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
   "dependencies": {
     "discord.js": "11.5.1",
-    "request-promise": "4.2.4"
+    "request-promise": "4.2.4",
+    "request": "2.88.0"
   },
   "engines": {
     "node": "12.4.x",
