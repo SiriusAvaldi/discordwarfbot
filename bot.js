@@ -48,6 +48,8 @@ var prefix = '!'
 					}
 					message.channel.sendMessage(mes);
 				}
+				else
+					message.channel.sendMessage('Ивентов не обнаружено');
 			}
 		})
      }
@@ -60,6 +62,40 @@ var prefix = '!'
 				mes += info.faction + ' - ' + info.eta + '\r\n';
 				for (index = 0; index < info.variants.length; index++) {
 				    mes += info.variants[index].missionType + ' - ' + info.variants[index].node + ' - ' + info.variants[index].modifier + '\r\n';
+				}
+				message.channel.sendMessage(mes);
+			}
+		})
+     }
+     if(message.content.startsWith(prefix + 'Вторжения')) {
+		request('https://api.warframestat.us/pc/invasions', function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				var info = JSON.parse(body);
+				var index;
+				var mes = "";
+				if(info.length > 0)
+				{
+					for (index = 0; index < info.variants.length; index++) {
+						if(info[index].vsInfestation === true)					
+							mes += info[index].desc + ' - ' + info[index].defenderReward.itemString + ' - ' + info[index].node + ' - ' + info[index].completion + '% - ' + info[index].eta + '\r\n';
+						else
+							mes += info[index].desc + ' - ' + info[index].attackerReward.itemString + ' vs ' + info[index].defenderReward.itemString + ' - ' + info[index].node + ' - ' + info[index].completion + '% - ' + info[index].eta + '\r\n';
+					}
+					message.channel.sendMessage(mes);
+				}
+				else
+					message.channel.sendMessage('Вторжений не обнаружено');
+			}
+		})
+     }
+     if(message.content.startsWith(prefix + 'Новости')) {
+		request('https://api.warframestat.us/pc/news', function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				var info = JSON.parse(body);
+				var index;
+				var mes = "";
+				for (index = info.variants.length; index >= 0; index--) {
+				    mes += info[index].translations.ru + ' - ' + info[index].eta + '\r\n';
 				}
 				message.channel.sendMessage(mes);
 			}
