@@ -27,13 +27,16 @@ var prefix = '!'
 			if (!error && response.statusCode == 200) {
 				var info = JSON.parse(body);
 				var index;
-				var mes;
+				var mes = "";
 				for (index = 0; index < info.length; index++) {
-				    mes += info[index].tier + ' ' + info[index].node + ' ' + info[index].missionType + ' ' + info[index].enemy  + ' ' + info[index].eta + '\r\n';
+				    mes += info[index].tier + ' - ' + info[index].node + ' - ' + info[index].missionType + ' - ' + info[index].enemy  + ' - ' + info[index].eta + '\r\n';
 				}
 				message.channel.sendMessage(mes);
 			}
 		})
+     }
+     if(message.content.startsWith(prefix + 'help')) {
+	var mes = "!help - Список команд\r\n!Цетус - Информация о времени стуток на Равнинай Эйдолона\r\n!Разломы - Информация о разломах бездны\r\n";
      }
 	 
  });
