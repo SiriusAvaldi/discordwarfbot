@@ -110,7 +110,7 @@ var prefix = '!'
 				var index;
 				var mes = "";			
 				for (index = info.length - 1; index >= 0; index--) {
-					if(info[index].translations.ru != "")
+					if(typeof(info[index].translations.ru) != "undefined")
 					{
 				        	mes += info[index].translations.ru + ' - ' + info[index].eta + '\r\n';
 					}
