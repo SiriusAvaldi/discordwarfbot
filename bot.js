@@ -44,7 +44,7 @@ var prefix = '!'
 				var index;
 				var mes = "";
 				for (index = 0; index < info.length; index++) {
-				    mes += info[index].tier + ' - ' + info[index].node + ' - ' + info[index].missionType + ' - ' + info[index].enemy  + ' - ' + info[index].eta + '\r\n';
+				    mes += info[index].tier + ' - ' + info[index].missionType + ' - ' + info[index].node + ' - ' + info[index].enemy  + ' - ' + info[index].eta + '\r\n';
 				}
 				message.channel.sendMessage(mes);
 			}
