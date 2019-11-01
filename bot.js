@@ -7,7 +7,7 @@ const client = new Discord.Client();
 var prefix = '!'
 var n = 1;
 
-let test = new cron.CronJob('* 01 * * * *', () => {
+let test = new cron.CronJob('01 * * * * *', () => {
 	n++;
 	client.user.setActivity(n);
 });
