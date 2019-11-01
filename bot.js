@@ -4,6 +4,10 @@ const request = require('request-promise');
 const client = new Discord.Client();
 
 var prefix = '!'
+
+ client.on('ready', () => {
+	client.user.setActivity(`Hello!`);
+ });
  
  client.on('message', message => {
     if(message.author === client.user) return;
