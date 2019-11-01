@@ -5,14 +5,6 @@ const cron = require('cron');
 const client = new Discord.Client();
 
 var prefix = '!'
-var n = 1;
-
-let test = new cron.CronJob('01 * * * * *', () => {
-	n++;
-	client.user.setActivity(n);
-});
-
-test.start();
  
  client.on('message', message => {
     if(message.author === client.user) return;
