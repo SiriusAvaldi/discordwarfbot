@@ -9,7 +9,7 @@ var n = 1;
 
 let test = new cron.CronJob('* 01 * * * *', () => {
 	n++;
-	client.user.setActivity(`${n}`);
+	client.user.setActivity(n);
 });
 
 test.start();
