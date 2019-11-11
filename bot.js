@@ -5,14 +5,14 @@ const client = new Discord.Client();
 
 var prefix = '!'
 client.on("ready", () => {
-	var date1 = new Date('11-12-2019');
+	var date1 = new Date('11-01-2019');
 	var date2 = new Date();
 	var daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
 	client.user.setActivity(`ожидание ${daysLag} дней `);
  });
  
  client.on('message', message => {
-    var date1 = new Date('11-12-2019');
+    var date1 = new Date('11-01-2019');
     var date2 = new Date();
     var daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
     client.user.setActivity(`ожидание ${daysLag} дней`);
