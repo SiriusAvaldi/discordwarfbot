@@ -6,14 +6,14 @@ const client = new Discord.Client();
 var prefix = '!'
 client.on("ready", () => {
 	var date1 = new Date();
-	var date2 = new Date('12-01-2019');
+	var date2 = new Date('12-05-2019');
 	var daysLag = Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
 	client.user.setActivity(`армии уже ${daysLag} дней`);
  });
  
  client.on('message', message => {
     var date1 = new Date();
-    var date2 = new Date('12-01-2019');
+    var date2 = new Date('12-05-2019');
     var daysLag = Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
     client.user.setActivity(`армии уже ${daysLag} дней`);
 	 
