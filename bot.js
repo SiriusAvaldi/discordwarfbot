@@ -159,14 +159,13 @@ client.on("ready", () => {
 			}
 		})
      }
-     var temp = message.content();
-     var temp = temp.toLowerCase();
      if(message.content.startsWith(prefix + 'дембель')) {
+	var temp = message.content();
+     	var temp = temp.toLowerCase();
 	var date1 = new Date('11-24-2021');
         var date2 = new Date();
         var daysLag = Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
-	message.channel.sendMessage('Осталось ' + daysLag + ' дней');
-	message.channel.sendMessage(temp);
+	message.channel.sendMessage('Осталось ' + daysLag + ' дней ' + temp);
      }
      if(message.content.startsWith(prefix + 'help')) {
 	var mes = prefix + "help - Список команд\r\n"
