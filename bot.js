@@ -3,7 +3,7 @@ const request = require('request-promise');
 
 const client = new Discord.Client();
 
-var prefix = '!'
+var prefix = '!!'
 client.on("ready", () => {
 	var date1 = new Date();
 	var date2 = new Date('11-24-2020');
