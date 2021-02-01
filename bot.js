@@ -159,6 +159,25 @@ client.on("ready", () => {
 			}
 		})
      }
+	 
+     if(message.content.startsWith(prefix + 'join')) {
+	const voiceChannel = message.member.voice.channel;
+	if(!voiceChannel) message.channel.send('Вы должны быть в голосовом канале');
+	if(voiceChannel)
+	{
+	    const connection = await voiceChannel.join();
+	}	 		 		 
+     }
+	
+     if(message.content.startsWith(prefix + 'leave')) {
+        const voiceChannel = message.member.voice.channel;
+        if(!voiceChannel) message.channel.send('Вы должны быть в голосовом канале');
+        if(voiceChannel)
+        {
+           await voiceChannel.leave();
+        }
+     }
+	 
      if(message.content.startsWith(prefix + 'дембель')) {
 	var date1 = new Date('11-24-2021');
         var date2 = new Date();
