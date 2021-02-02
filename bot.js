@@ -24,11 +24,11 @@ client.on("ready", () => {
 				var info = JSON.parse(body);
 				if(info.isDay === true)
 				{
-					message.channel.sendMessage('До ночи осталось ' + info.timeLeft);
+					message.channel.send('До ночи осталось ' + info.timeLeft);
 				}		
 				else
 				{
-					message.channel.sendMessage('До дня осталось ' + info.timeLeft);
+					message.channel.send('До дня осталось ' + info.timeLeft);
 				}	
 			}
 		})
@@ -39,11 +39,11 @@ client.on("ready", () => {
 				var info = JSON.parse(body);
 				if(info.isWarm === true)
 				{
-					message.channel.sendMessage('До холодной погоды осталось ' + info.timeLeft);
+					message.channel.send('До холодной погоды осталось ' + info.timeLeft);
 				}		
 				else
 				{
-					message.channel.sendMessage('До теплой погоды осталось ' + info.timeLeft);
+					message.channel.send('До теплой погоды осталось ' + info.timeLeft);
 				}	
 			}
 		})
@@ -57,7 +57,7 @@ client.on("ready", () => {
 				for (index = 0; index < info.length; index++) {
 				    mes += info[index].tier + ' - ' + info[index].missionType + ' - ' + info[index].node + ' - ' + info[index].enemy  + ' - ' + info[index].eta + '\r\n';
 				}
-				message.channel.sendMessage(mes);
+				message.channel.send(mes);
 			}
 		})
      }
@@ -72,10 +72,10 @@ client.on("ready", () => {
 					for (index = 0; index < info.length; index++) {
 					    mes += info[index].description + ' - ' + info[index].tooltip + ' - ' + info[index].expiry + '\r\n';
 					}
-					message.channel.sendMessage(mes);
+					message.channel.send(mes);
 				}
 				else
-					message.channel.sendMessage('Ивентов не обнаружено');
+					message.channel.send('Ивентов не обнаружено');
 			}
 		})
      }
@@ -89,7 +89,7 @@ client.on("ready", () => {
 				for (index = 0; index < info.variants.length; index++) {
 				    mes += info.variants[index].missionType + ' - ' + info.variants[index].node + ' - ' + info.variants[index].modifier + '\r\n';
 				}
-				message.channel.sendMessage(mes);
+				message.channel.send(mes);
 			}
 		})
      }
@@ -107,10 +107,10 @@ client.on("ready", () => {
 						else
 							mes += info[index].attackerReward.itemString + ' vs ' + info[index].defenderReward.itemString + ' - ' + info[index].desc + ' - ' + info[index].node + ' - ' + info[index].completion + '% - ' + info[index].eta + '\r\n';
 					}
-					message.channel.sendMessage(mes);
+					message.channel.send(mes);
 				}
 				else
-					message.channel.sendMessage('Вторжений не обнаружено');
+					message.channel.send('Вторжений не обнаружено');
 			}
 		})
      }
@@ -126,7 +126,7 @@ client.on("ready", () => {
 				        	mes += info[index].translations.ru + ' - ' + info[index].eta + '\r\n';
 					}
 				}
-				message.channel.sendMessage(mes);
+				message.channel.send(mes);
 			}
 		})
      }
@@ -139,7 +139,7 @@ client.on("ready", () => {
 				for (index = 0; index < info.activeChallenges.length; index++) {
 				        mes += info.activeChallenges[index].title + ' - ' + info.activeChallenges[index].desc + ' - ' + info.activeChallenges[index].reputation + '\r\n';
 				}
-				message.channel.sendMessage(mes);
+				message.channel.send(mes);
 			}
 		})
      }
@@ -154,7 +154,7 @@ client.on("ready", () => {
 					for (index = 0; index < info.inventory.length; index++) {
 						mes += info.inventory[index].item + ' - Дукаты ' + info.inventory[index].ducats + ' + Кредиты ' + info.inventory[index].credits + '\r\n';
 					}
-					message.channel.sendMessage(mes);
+					message.channel.send(mes);
 				}
 			}
 		})
@@ -182,7 +182,7 @@ client.on("ready", () => {
 	var date1 = new Date('11-24-2021');
         var date2 = new Date();
         var daysLag = Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
-	message.channel.sendMessage('Осталось ' + daysLag + ' дней');
+	message.channel.send('Осталось ' + daysLag + ' дней');
      }
      if(message.content.startsWith(prefix + 'help')) {
 	var mes = prefix + "help - Список команд\r\n"
@@ -195,7 +195,7 @@ client.on("ready", () => {
 	+ prefix + "Новости - Список последних новостей\r\n"
 	+ prefix + "Волна - Информация о Ночной Волне\r\n"
 	+ prefix + "Баро - Информация о Торговце бездны\r\n";
-     	message.channel.sendMessage(mes);
+     	message.channel.send(mes);
      }
 	 
  });
