@@ -184,6 +184,11 @@ client.on("ready", () => {
         var daysLag = Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
 	message.channel.send('Осталось ' + daysLag + ' дней');
      }
+	 
+     if(message.content.startsWith(prefix + 'Привет')) {
+	message.channel.send('Привет');
+     } 
+	 
      if(message.content.startsWith(prefix + 'help')) {
 	var mes = prefix + "help - Список команд\r\n"
 	+ prefix + "Цетус - Информация о времени стуток на Равнинах Эйдолона\r\n"
