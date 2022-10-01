@@ -18,6 +18,9 @@ client.on("ready", () => {
     client.user.setActivity(`армии уже ${daysLag} дней`);*/
 	 
     if(message.author === client.user) return;
+    if(message.content.startsWith(prefix + 'importerbyme')){
+	    message.channel.send('https://cdn.discordapp.com/attachments/818219336702361650/818219407775498280/2021252044.png');
+}
     if(message.content.startsWith(prefix + 'Цетус')) {
 		request('https://api.warframestat.us/pc/cetusCycle', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
