@@ -19,7 +19,7 @@ client.on("ready", () => {
 	 
     if(message.author === client.user) return;
     if(message.content.startsWith(prefix + 'importerbyme')){
-	    message.channel.send('https://cdn.discordapp.com/attachments/818219336702361650/818219407775498280/2021252044.png'); sleep(1000);
+	    message.channel.send('https://cdn.discordapp.com/attachments/818219336702361650/818219407775498280/2021252044.png');
 message.channel.send('https://cdn.discordapp.com/attachments/694498482689540158/807570487084974101/unknown.png'); sleep(1000);
 message.channel.send('https://cdn.discordapp.com/attachments/818219336702361650/818219486862901258/unknown.png'); sleep(1000);
 message.channel.send('https://cdn.discordapp.com/attachments/818219336702361650/818219623915716608/unknown.png'); sleep(1000);
